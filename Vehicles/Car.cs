@@ -4,7 +4,8 @@
   {
     public double CurrentAmountInTank { get; set; }
     public FuelTypes TypeOfFuel { get; }
-    Random randomGen = new Random();
+    private Random randomGen = new Random();
+    public int TankSizeStore { get; set; }
     public Car()
     {
       CurrentAmountInTank = CurrentFuelInTank();
@@ -13,7 +14,8 @@
 
     public int TankSize()
     {
-      return 50;
+      TankSizeStore = randomGen.Next(45, 60);
+      return TankSizeStore;
     }
     public FuelTypes FuelType()
     {
