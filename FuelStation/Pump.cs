@@ -15,7 +15,7 @@
     }
     private void StartTimer()
     {
-      if (CurrentVehicle != null)
+      if(CurrentVehicle != null)
       {
         int timeToFill = (int)(Convert.ToDouble(CurrentVehicle.TankSize()) - CurrentVehicle.CurrentAmountInTank) / PumpTime * 1000;
         fuelTimer = new Timer(Callback, null, timeToFill, timeToFill);
@@ -24,7 +24,7 @@
     }
     private void Callback(object? state)
     {
-      if (CurrentVehicle is not null)
+      if(CurrentVehicle is not null)
       {
         IncrementFuelValue();
         CurrentVehicle.CurrentAmountInTank = CurrentVehicle.TankSize();

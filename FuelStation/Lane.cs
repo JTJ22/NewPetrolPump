@@ -14,7 +14,7 @@
     private Dictionary<int, Pump> OccupyLane()
     {
       Dictionary<int, Pump> lane = new Dictionary<int, Pump>();
-      for (int i = 0; i < 4; i++)
+      for(int i = 0; i < 4; i++)
       {
         lane.Add(i, new Pump());
       }
@@ -24,24 +24,24 @@
     {
       bool isBlocked = false;
 
-      for (int i = 0; i < pumpsInLane.Count; i++)
+      for(int i = 0; i < pumpsInLane.Count; i++)
       {
         Pump pump = pumpsInLane[i];
 
-        if (!pump.CurrentlyOccupied)
+        if(!pump.CurrentlyOccupied)
         {
           bool anyLaterOccupied = false;
 
-          for (int j = i + 1; j < pumpsInLane.Count; j++)
+          for(int j = i + 1; j < pumpsInLane.Count; j++)
           {
-            if (pumpsInLane[j].CurrentlyOccupied)
+            if(pumpsInLane[j].CurrentlyOccupied)
             {
               anyLaterOccupied = true;
               break;
             }
           }
 
-          if (!anyLaterOccupied)
+          if(!anyLaterOccupied)
           {
             isBlocked = true;
             pump.AddToPump(newVehicle);

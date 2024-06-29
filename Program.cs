@@ -13,15 +13,15 @@ namespace NewPetrolPump
 
     private static void UpdateDisplay(object? state)
     {
-      if (state is VehicleCreator fuelStation)
+      if(state is VehicleCreator fuelStation)
       {
         Console.Clear();
 
-        foreach (Lane lane in fuelStation.Forecourt.lanes.Values)
+        foreach(Lane lane in fuelStation.Forecourt.lanes.Values)
         {
           Console.WriteLine($"Lane {lane.LaneName}:");
           int i = 0;
-          foreach (Pump pump in lane.pumpsInLane.Values)
+          foreach(Pump pump in lane.pumpsInLane.Values)
           {
             string status = pump.CurrentlyOccupied ? $"Occupied by {pump.CurrentVehicle?.GetType().Name}" : "Available";
             Console.WriteLine($"  Pump {i++}: {status}");
@@ -29,7 +29,7 @@ namespace NewPetrolPump
         }
         Console.WriteLine("\n");
 
-        foreach (KeyValuePair<string, double> type in Forecourt.FuelUsed)
+        foreach(KeyValuePair<string, double> type in Forecourt.FuelUsed)
         {
           Console.WriteLine($"{type.Key}: £{Math.Round(type.Value),2}");
         }
